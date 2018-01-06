@@ -9,7 +9,8 @@ import com.android.volley.toolbox.StringRequest;
 
 public class VolleyStringRequest extends StringRequest {
 
-    public VolleyStringRequest(String url, Response.Listener<String> listener, Response.ErrorListener errorListener) {
+    public VolleyStringRequest(String url, Response.Listener<String> listener,
+                               Response.ErrorListener errorListener) {
         super(url, listener, errorListener);
     }
 }

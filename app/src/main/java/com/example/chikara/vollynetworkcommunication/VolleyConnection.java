@@ -18,7 +18,7 @@ public class VolleyConnection {
     private VolleyResultListener listener;
     private final int TIMEOUT = 60000;
 
-    public VolleyConnection(Context context, String actionId, final VolleyResultListener listener) {
+    public VolleyConnection(Context context,String actionId, final VolleyResultListener listener) {
         this.context = context;
         this.actionId = actionId;
         this.listener = listener;
@@ -48,7 +48,8 @@ public class VolleyConnection {
 
     private String getActionUrl(String actionId) {
         String BASE_URL = context.getString(R.string.base_url);
-        return BASE_URL + actionId;
+//        return BASE_URL + actionId;
+        return "https://simplifiedcoding.net/demos/view-flipper/heroes.php";
     }
 
     interface VolleyResultListener {

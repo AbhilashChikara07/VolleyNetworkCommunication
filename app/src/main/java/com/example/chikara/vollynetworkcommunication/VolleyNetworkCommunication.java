@@ -1,6 +1,7 @@
 package com.example.chikara.vollynetworkcommunication;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -14,6 +15,13 @@ public class VolleyNetworkCommunication extends Application {
 
     private static VolleyNetworkCommunication appInstance = null;
     private RequestQueue requestQueue = null;
+    private static Context context;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        context = getApplicationContext();
+    }
 
     public synchronized static VolleyNetworkCommunication getIntance() {
         if (appInstance == null) {
@@ -27,7 +35,7 @@ public class VolleyNetworkCommunication extends Application {
     public synchronized RequestQueue getRequestQueue() {
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue
-                    (this, new VolleyOkHttpStack(new OkHttpClient()));
+                    (context, new VolleyOkHttpStack(new OkHttpClient()));
             return requestQueue;
         } else {
             return requestQueue;
